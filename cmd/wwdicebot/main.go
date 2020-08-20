@@ -20,9 +20,11 @@ var buffer = make([][]byte, 0)
 
 func main() {
 	// Read bot token from env var first, but allow a commandline flag to override it
-	botToken := os.Getenv("DISCORD_BOT_TOKEN")
-	flag.StringVar(&botToken, "t", "", "Discord bot token")
-	flag.Parse()
+	token = os.Getenv("DISCORD_BOT_TOKEN")
+	if len(token) == 0 {
+		flag.StringVar(&token, "t", "", "Discord bot token")
+		flag.Parse()
+	}
 
 	if token == "" {
 		fmt.Println("No token provided. Please run: wwdicebot -t <bot token>")
