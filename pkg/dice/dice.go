@@ -23,7 +23,7 @@ var ErrFailedToParse = errors.New("failed to parse dice string")
 // Y = difficulty of the roll. Set to 0 to
 func ParseDiceString(s string) (DiceConfig, error) {
 	var dice DiceConfig
-	n, err := fmt.Sscanf(s, "%dd%d", &dice.Count, &dice.Difficulty)
+	n, err := fmt.Sscanf(s, "%d %d", &dice.Count, &dice.Difficulty)
 	if err != nil {
 		return dice, ErrFailedToParse
 	}

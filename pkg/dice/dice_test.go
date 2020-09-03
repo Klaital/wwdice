@@ -3,7 +3,7 @@ package dice
 import "testing"
 
 func TestParseDiceString(t *testing.T) {
-	checkDiceParsing(" 3d6 ",
+	checkDiceParsing(" 3 6 ",
 		DiceConfig{
 			Count:      3,
 			Difficulty: 6,
@@ -12,7 +12,7 @@ func TestParseDiceString(t *testing.T) {
 		nil,
 		t)
 
-	checkDiceParsing("3d6",
+	checkDiceParsing("3 6",
 		DiceConfig{
 			Count:      3,
 			Difficulty: 6,
@@ -21,7 +21,7 @@ func TestParseDiceString(t *testing.T) {
 		nil,
 		t)
 
-	checkDiceParsing("10d7!",
+	checkDiceParsing("10 7!",
 		DiceConfig{
 			Count:      10,
 			Difficulty: 7,
@@ -30,7 +30,7 @@ func TestParseDiceString(t *testing.T) {
 		nil,
 		t)
 
-	checkDiceParsing("3d11",
+	checkDiceParsing("3 11",
 		DiceConfig{
 			Count:      3,
 			Difficulty: 11,
@@ -39,7 +39,7 @@ func TestParseDiceString(t *testing.T) {
 		ErrBadDifficulty,
 		t)
 
-	checkDiceParsing("10d0",
+	checkDiceParsing("10 0",
 		DiceConfig{
 			Count:      10,
 			Difficulty: 0,
@@ -48,7 +48,7 @@ func TestParseDiceString(t *testing.T) {
 		ErrBadDifficulty,
 		t)
 
-	checkDiceParsing("0d6",
+	checkDiceParsing("0 6",
 		DiceConfig{
 			Count:      0,
 			Difficulty: 6,
@@ -60,11 +60,11 @@ func TestParseDiceString(t *testing.T) {
 	//
 	// These should all fail to parse
 	//
-	checkDiceParsing("xd6",
+	checkDiceParsing("x 6",
 		DiceConfig{},
 		ErrFailedToParse,
 		t)
-	checkDiceParsing("6dy",
+	checkDiceParsing("6 y",
 		DiceConfig{},
 		ErrFailedToParse,
 		t)

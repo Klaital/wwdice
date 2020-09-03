@@ -1,9 +1,11 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
+	"github.com/klaital/wwdice/pkg/characters"
 	"github.com/klaital/wwdice/pkg/dice"
 	log "github.com/sirupsen/logrus"
 	"math/rand"
@@ -143,4 +145,15 @@ func messageCreateHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 			}
 		}
 	}
+}
+
+
+func registerCharacter(id string, c characters.Character) error {
+	return errors.New("not implemented yet")
+}
+func loadPlayerCharacter(id string) (characters.Character, error) {
+	return nil, errors.New("not implemented yet")
+}
+func loadCharacter() (characters.Character, error) {
+	return nil, errors.New("not implemented yet")
 }
