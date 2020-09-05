@@ -12,7 +12,7 @@ clean:
 	rm -f wwdicebot wwdicebot.exe wwdicecli wwdicecli.exe characterroller characterroller.exe
 
 test:
-	go test pkg/...
+	go test ./pkg/...
 
 wwdicebot: pkg/dice/*.go cmd/wwdicebot/*.go
 	go build -o wwdicebot cmd/wwdicebot/main.go
